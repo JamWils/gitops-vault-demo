@@ -18,6 +18,7 @@ spec:
       envFrom:
       - secretRef:
           name: azure-tf-credentials
+  enableInventory: true
 ---
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
@@ -40,3 +41,4 @@ spec:
       envFrom:
       - secretRef:
           name: azure-tf-credentials
+  enableInventory: true
