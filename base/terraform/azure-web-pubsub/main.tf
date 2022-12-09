@@ -17,12 +17,12 @@ resource "azurerm_resource_group" "azapi_labs_eu_west" {
 }
 
 resource "azurerm_web_pubsub" "example_eu_west" {
-  name                = "tfex-webpubsub_eu_west"
+  name                = "tfex-webpubsub-eu-west"
   location            = azurerm_resource_group.azapi_labs_eu_west.location
   resource_group_name = azurerm_resource_group.azapi_labs_eu_west.name
 
   sku      = "Standard_S1"
-  capactiy = 1
+  capacity = 1
 
   public_network_access_enabled = false
 
@@ -39,12 +39,12 @@ resource "azurerm_resource_group" "azapi_labs_us_east" {
 }
 
 resource "azurerm_web_pubsub" "example_us_east" {
-  name                = "tfex-webpubsub_us_east"
+  name                = "tfex-webpubsub-us-east"
   location            = azurerm_resource_group.azapi_labs_us_east.location
   resource_group_name = azurerm_resource_group.azapi_labs_us_east.name
 
   sku      = "Standard_S1"
-  capactiy = 1
+  capacity = 1
 
   public_network_access_enabled = false
 
