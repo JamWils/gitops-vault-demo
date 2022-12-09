@@ -65,3 +65,26 @@ spec:
       - secretRef:
           name: azure-tf-credentials
   enableInventory: true
+---
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: azure-mobile-api-pubsub
+  namespace: flux-system
+  annotations:
+    metadata.weave.works/description: This is a sample set of objects for Azure Web PubSub.
+spec:
+  interval: 2m
+  approvePlan: auto
+  path: ./base/terraform/azure-mobile-pubsub
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+    - name: azure-config
+  runnerPodTemplate:
+    spec:
+      envFrom:
+      - secretRef:
+          name: azure-tf-credentials
+  enableInventory: true
