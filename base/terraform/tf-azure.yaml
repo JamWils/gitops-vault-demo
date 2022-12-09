@@ -8,35 +8,3 @@ metadata:
     metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings.
 spec:
   interval: 10m
-  approvePlan: auto
-  path: ./base/terraform/azure-config
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  runnerPodTemplate:
-    spec:
-      envFrom:
-      - secretRef:
-          name: azure-tf-credentials
----
-apiVersion: infra.contrib.fluxcd.io/v1alpha1
-kind: Terraform
-metadata:
-  name: azure-functions
-  namespace: flux-system
-  annotations:
-    metadata.weave.works/description: This is a sample set of objects for Azure functions.
-spec:
-  interval: 10m
-  approvePlan: auto
-  path: ./base/terraform/azure-functions
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  dependsOn:
-    - name: azure-config
-  runnerPodTemplate:
-    spec:
-      envFrom:
-      - secretRef:
-          name: azure-tf-credentials
