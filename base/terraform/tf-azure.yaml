@@ -20,7 +20,7 @@ spec:
           name: azure-tf-credentials
   enableInventory: true
   variables:
-    location: us-east
+    resource_group_location: us-east
 ---
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
@@ -43,7 +43,7 @@ spec:
           name: azure-tf-credentials
   enableInventory: true
   variables:
-    location: us-west
+    resource_group_location: us-west
 ---
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
