@@ -2,10 +2,10 @@
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
-  name: azure-config
+  name: azure-config-us-east
   namespace: flux-system
   annotations:
-    metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings.
+    metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings for US East.
 spec:
   interval: 10m
   approvePlan: auto
@@ -25,10 +25,10 @@ spec:
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
-  name: azure-config
+  name: azure-config-us-west
   namespace: flux-system
   annotations:
-    metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings.
+    metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings for US West.
 spec:
   interval: 10m
   approvePlan: auto
