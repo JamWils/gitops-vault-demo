@@ -24,7 +24,7 @@ spec:
         kind: HelmRepository
         name: weave-gitops-enterprise-charts
         namespace: flux-system
-      version: 0.12.0
+      version: 0.18.1
   install:
     crds: CreateReplace
   upgrade:
@@ -33,6 +33,7 @@ spec:
   values:
     enablePipelines: true
     enableTerraformUI: true
+    enableRunUI: true
     # -- Configure TLS settings if needed
     # tls:
       # -- Can be disabled if TLS is handled by a user-provided ingress controller

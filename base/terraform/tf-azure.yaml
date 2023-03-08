@@ -19,6 +19,31 @@ spec:
       - secretRef:
           name: azure-tf-credentials
   enableInventory: true
+  variables:
+    location: us-east
+---
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: azure-config
+  namespace: flux-system
+  annotations:
+    metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings.
+spec:
+  interval: 10m
+  approvePlan: auto
+  path: ./base/terraform/azure-config
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  runnerPodTemplate:
+    spec:
+      envFrom:
+      - secretRef:
+          name: azure-tf-credentials
+  enableInventory: true
+  variables:
+    location: us-west
 ---
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
