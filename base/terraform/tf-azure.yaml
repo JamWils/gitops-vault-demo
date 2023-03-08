@@ -2,7 +2,7 @@
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
-  name: azure-config-us-east
+  name: azure-config
   namespace: flux-system
   annotations:
     metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings for US East.
@@ -19,31 +19,6 @@ spec:
       - secretRef:
           name: azure-tf-credentials
   enableInventory: true
-  variables:
-    resource_group_location: us-east
----
-apiVersion: infra.contrib.fluxcd.io/v1alpha1
-kind: Terraform
-metadata:
-  name: azure-config-us-west
-  namespace: flux-system
-  annotations:
-    metadata.weave.works/description: This is a sample set of objects for Azure such as role bindings for US West.
-spec:
-  interval: 10m
-  approvePlan: auto
-  path: ./base/terraform/azure-config
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  runnerPodTemplate:
-    spec:
-      envFrom:
-      - secretRef:
-          name: azure-tf-credentials
-  enableInventory: true
-  variables:
-    resource_group_location: us-west
 ---
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
