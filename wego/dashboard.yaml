@@ -53,10 +53,10 @@ spec:
       git:
         type: github
         hostname: "github.com"
-      policy-agent:
-        enabled: true
-        accountId: test-id-123
-        clusterId: cluster-id-123
+      # policy-agent:
+      #   enabled: true
+      #   accountId: test-id-123
+      #   clusterId: cluster-id-123
       # oidc:
       #   enabled: "true"
       #   clientCredentialsSecret: dex-client-credentials
