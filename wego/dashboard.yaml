@@ -43,7 +43,7 @@ spec:
     tls:
       enabled: false
     global:
-      capiEnabled: true
+      capiEnabled: false
       useK8sCachedClients: false
     config:
       capi:
