@@ -49,7 +49,7 @@ spec:
       capi:
         repositoryURL: https://github.com/JamWils/gitops-vault-demo
       cluster-controller:
-        enabled: true
+        enabled: false
       git:
         type: github
         hostname: "github.com"
