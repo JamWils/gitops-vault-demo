@@ -40,16 +40,16 @@ spec:
         https: 8000
       targetPorts:
         https: 8000
-    tls:
-      enabled: false
-    global:
-      capiEnabled: false
-      useK8sCachedClients: false
+    # tls:
+    #   enabled: false
+    # global:
+    #   capiEnabled: false
+    #   useK8sCachedClients: false
     config:
       capi:
         repositoryURL: https://github.com/JamWils/gitops-vault-demo
-      cluster-controller:
-        enabled: false
+      # cluster-controller:
+      #   enabled: false
       git:
         type: github
         hostname: "github.com"
