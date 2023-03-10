@@ -17,48 +17,32 @@ metadata:
 spec:
   chart:
     spec:
+      interval: 65m
       chart: mccp
       sourceRef:
         kind: HelmRepository
         name: weave-gitops-enterprise-charts
         namespace: flux-system
-      version: v0.18.1
+      version: 0.12.0
   install:
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
-  interval: 1m0s
+  interval: 50m
   values:
-    images:
-      clusterBootstrapController: weaveworks/cluster-bootstrap-controller:v0.4.0
-    enablePipelines: true
-    enableTerraformUI: true
-    enableRunUI: true
-    service:
-      type: ClusterIP
-      ports:
-        https: 8000
-      targetPorts:
-        https: 8000
+    # -- Configure TLS settings if needed
     # tls:
-    #   enabled: false
-    # global:
-    #   capiEnabled: false
-    #   useK8sCachedClients: false
+      # -- Can be disabled if TLS is handled by a user-provided ingress controller
+      # enabled: true
+      # -- optionally specify a TLS secret
+      # secretName: null
     config:
       capi:
         repositoryURL: https://github.com/JamWils/gitops-vault-demo
-      # cluster-controller:
-      #   enabled: false
+        # -- Can be changed depending on your git repo structure
+        # repositoryPath: ./clusters/management/clusters
+        # repositoryClustersPath: ./cluster
       git:
         type: github
-        hostname: "github.com"
-      # policy-agent:
-      #   enabled: true
-      #   accountId: test-id-123
-      #   clusterId: cluster-id-123
-      # oidc:
-      #   enabled: "true"
-      #   clientCredentialsSecret: dex-client-credentials
-      #   issuerURL: https://dex-demo3.weavegitops.com
-      #   redirectURL: https://demo3.weavegitops.com/oauth2/callback
+        # -- Change if using on-prem github/gitlab
+        # hostname: https://github.com
